@@ -10,6 +10,7 @@ import numpy as np
 import tensorflow as tf
 
 
+
 tf.compat.v1.disable_eager_execution()
 
 
@@ -118,7 +119,7 @@ class VAE:
             pickle.dump(parameters, f)
 
     def _save_weights(self, save_folder):
-        save_path = os.path.join(save_folder, "weights.h5")
+        save_path = os.path.join(save_folder, "weights.weights.h5")
         self.model.save_weights(save_path)
 
     def _build(self):
@@ -249,6 +250,7 @@ if __name__ == "__main__":
         latent_space_dim=2
     )
     autoencoder.summary()
+    print(tf.__version__)
 
 
 
